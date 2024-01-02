@@ -1,5 +1,14 @@
 function fibonacci(num) {
-  // type your code here
+  let next = 1;
+  let prev = 0;
+  let value = 0;
+  while (num - 1 >= 0) {
+    value = next;
+    next = next + prev;
+    prev = value;
+    num--;
+  }
+  return value;
 }
 
 if (require.main === module) {
