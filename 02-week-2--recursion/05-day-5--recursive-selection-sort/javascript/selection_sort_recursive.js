@@ -1,5 +1,16 @@
 function selectionSortRecursive(arr) {
-  // type your code here
+  if (arr.length === 0) {
+    return arr;
+  }
+  //Takes the minimum value and swaps it with the first element
+  const min = Math.min(...arr);
+  const index = arr.indexOf(min);
+  [arr[0], arr[index]] = [arr[index], arr[0]];
+  //saves the min value and inserts it to the beginning of returned recursive array
+  const newArr = arr.shift();
+  const result = selectionSortRecursive(arr);
+  result.unshift(newArr);
+  return result;
 }
 
 if (require.main === module) {
